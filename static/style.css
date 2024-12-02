@@ -1,0 +1,56 @@
+/* General styles for a modern look */
+body {
+    font-family: Arial, sans-serif;
+    background: #f8f9fa;
+    margin: 0;
+    padding: 20px;
+    color: #343a40;
+}
+
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+
+table {
+    width: 90%;
+    margin: 20px auto;
+    border-collapse: collapse;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background: #fff;
+}
+
+th, td {
+    padding: 10px 15px;
+    text-align: center;
+    border: 1px solid #ddd;
+}
+
+th {
+    background: #007bff;
+    color: white;
+}
+
+tr:nth-child(even) {
+    background: #f2f2f2;
+}
+
+button {
+    padding: 5px 10px;
+    margin: 2px;
+    font-size: 0.9rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    color: #fff;
+    background: #28a745;
+    transition: background 0.3s;
+}
+
+button:hover {
+    background: #218838;
+}
+
+button:active {
+    background: #1e7e34;
+}

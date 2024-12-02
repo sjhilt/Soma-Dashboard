@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Blinds Control</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+    <h1>Smart Blinds Dashboard</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>MAC Address</th>
+                <th>State</th>
+                <th>Battery Percentage</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for shade in shades %}
+            <tr>
+                <td>{{ shade.name }}</td>
+                <td>{{ shade.mac }}</td>
+                <td>{{ shade.state }}</td> <!-- State: "Closed" or "Open" -->
+                <td>{{ shade.battery_percentage }}%</td>
+                <td>
+                    <button onclick="controlShade('{{ shade.mac }}', 'open')">Open</button>
+                    <button onclick="controlShade('{{ shade.mac }}', 'close')">Close</button>
+                    <button onclick="controlShade('{{ shade.mac }}', 'stop')">Stop</button>
+                    <input type="number" id="pos-{{ shade.mac }}" placeholder="Position (0-100)">
+                    <button onclick="setPosition('{{ shade.mac }}')">Set Position</button>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <script>
+        function controlShade(mac, action) {
+            $.ajax({
+                url: "/control",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ mac: mac, action: action }),
+                success: function () {
+                    alert("Action executed: " + action);
+                    location.reload();
+                },
+                error: function (xhr) {
+                    alert("Error: " + xhr.responseJSON.error);
+                }
+            });
+        }
+
+        function setPosition(mac) {
+            const position = document.getElementById("pos-" + mac).value;
+            if (position === "") {
+                alert("Please enter a position.");
+                return;
+            }
+            $.ajax({
+                url: "/control",
+                method: "POST",
+                contentType: "application/json",
+                data: JSON.stringify({ mac: mac, action: "set_position", position: parseInt(position) }),
+                success: function () {
+                    alert("Position set to: " + position);
+                    location.reload();
+                },
+                error: function (xhr) {
+                    alert("Error: " + xhr.responseJSON.error);
+                }
+            });
+        }
+    </script>
+</body>
+</html>
