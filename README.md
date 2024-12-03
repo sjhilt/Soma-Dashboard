@@ -31,21 +31,21 @@ A Flask-based web application to control and monitor SOMA smart blinds via the S
    cd smart-blinds-controller
    ```
 
-2. **Install dependencies:**
+2. **Install dependencies**:
 
 ```bash
 pip install -r requirements.txt
 ```
 
 
-3. **Configure the IP address:
+3. **Configure the IP address**:
 - Open app.py.
 - Replace 192.168.0.123 with the IP address of your SOMA Connect device:
 
 ``` config 
 DEVICE_IP = "172.18.32.54"
 ```
-4. **Run the application:
+4. **Run the application**:
 
 ```bash 
 python -m app
@@ -71,9 +71,9 @@ Name: The name of the shade as set in the SOMA app.
 3.	**Stop: Stops the shade movement immediately.**
 4.	**Set Position: Allows setting a custom position between 0 (fully closed) and 100 (fully open).**
 
-API Reference
+## API Reference
 
-The application interacts with the SOMA Connect device using the following endpoints:
+- The application interacts with the SOMA Connect device using the following endpoints:
 
 |Endpoint | Description |
 | --- | -- | 
@@ -93,13 +93,15 @@ The application interacts with the SOMA Connect device using the following endpo
 - Flask
 - Requests
 
-Install dependencies with:
+## Install dependencies with:
 
-```pip install -r requirements.txt```
+``` bash
+pip install -r requirements.txt
+```
 
 ## Contributions
 
-Contributions are welcome! Feel free to fork the repository, make improvements, and open a pull request.
+- Contributions are welcome! Feel free to fork the repository, make improvements, and open a pull request.
 
 ## License
 
