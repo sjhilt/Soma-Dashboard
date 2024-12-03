@@ -27,8 +27,8 @@ A Flask-based web application to control and monitor SOMA smart blinds via the S
 ### Steps
 1. **Clone the repository**:
   ```bash
-   git clone https://github.com/yourusername/smart-blinds-controller.git
-   cd smart-blinds-controller
+   git clone https://github.com/sjhilt/soma-dashboard.git
+   cd soma-dashboard
    ```
 
 2. **Install dependencies**:
