@@ -82,17 +82,6 @@ The application interacts with the SOMA Connect device using the following endpo
 
 
 
-## File Structure
-
-smart-blinds-controller/
-├── app.py                  # Main Flask application
-├── requirements.txt        # Python dependencies
-├── templates/              # HTML templates for Flask
-│   ├── index.html          # Dashboard template
-│   └── error.html          # Error template
-├── static/                 # Static files (CSS, JS, etc.)
-│   └── style.css           # Custom styles for the dashboard
-└── README.md               # Project documentation
 
 ## Requirements
 
