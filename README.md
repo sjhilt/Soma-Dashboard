@@ -25,7 +25,7 @@ A Flask-based web application to control and monitor SOMA smart blinds via the S
 - Flask and other required Python libraries (see below)
 
 ### Steps
-1. **Clone the repository**:**
+1. **Clone the repository**:
   ```bash
    git clone https://github.com/yourusername/smart-blinds-controller.git
    cd smart-blinds-controller
@@ -33,22 +33,27 @@ A Flask-based web application to control and monitor SOMA smart blinds via the S
 
 2. **Install dependencies:**
 
-``pip install -r requirements.txt``
+```bash
+pip install -r requirements.txt
+```
 
 
-3.	**Configure the IP address:
-	- Open app.py.
-	- Replace 192.168.0.123 with the IP address of your SOMA Connect device:
+3. **Configure the IP address:
+- Open app.py.
+- Replace 192.168.0.123 with the IP address of your SOMA Connect device:
 
-```DEVICE_IP = "172.18.32.54"```
+``` config 
+DEVICE_IP = "172.18.32.54"
+```
+4. **Run the application:
 
-4.	**Run the application:
+```bash 
+python -m app
+```
 
-```python -m app```
 
-
-5.	**Access the application:
-	- Open a browser and navigate to http://127.0.0.1:5000/.
+5. **Access the application:
+- Open a browser and navigate to http://127.0.0.1:5000/.
 
 ## Usage
 
