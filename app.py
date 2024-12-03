@@ -1,6 +1,5 @@
 from flask import Flask, render_template, jsonify, request
 import requests
-import logging
 
 # Flask application instance
 app = Flask(__name__)
@@ -8,9 +7,6 @@ app = Flask(__name__)
 # Replace with the IP address of your SOMA Connect device
 DEVICE_IP = "192.168.0.123"
 BASE_URL = f"http://{DEVICE_IP}:3000"
-
-# Configure logging for debugging
-logging.basicConfig(level=logging.DEBUG, format='%(asctime)s - %(levelname)s - %(message)s')
 
 def list_devices():
     """
@@ -24,10 +20,9 @@ def list_devices():
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
-        logging.debug(f"Devices API response: {data}")
+
         return data
     except requests.RequestException as e:
-        logging.error(f"Failed to fetch devices: {e}")
         return {"error": str(e)}
 
 def get_shade_state(mac):
@@ -45,10 +40,8 @@ def get_shade_state(mac):
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
-        logging.debug(f"Current State API response for {mac}: {data}")
         return data
     except requests.RequestException as e:
-        logging.error(f"Failed to fetch current state for {mac}: {e}")
         return {"error": str(e)}
 
 def get_battery_level(mac):
@@ -66,10 +59,8 @@ def get_battery_level(mac):
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
-        logging.debug(f"Battery Level API response for {mac}: {data}")
         return data
     except requests.RequestException as e:
-        logging.error(f"Failed to fetch battery level for {mac}: {e}")
         return {"error": str(e)}
 
 def control_shade(mac, action, position=None):
@@ -95,10 +86,8 @@ def control_shade(mac, action, position=None):
         response = requests.get(url)
         response.raise_for_status()
         data = response.json()
-        logging.debug(f"Control Shade API response for {mac} with action '{action}': {data}")
         return data
     except requests.RequestException as e:
-        logging.error(f"Failed to execute '{action}' action for {mac}: {e}")
         return {"error": str(e)}
 
 @app.route("/")
@@ -153,4 +142,4 @@ def control():
 
 if __name__ == "__main__":
     # Run the Flask application
-    app.run(debug=True)
+    app.run(debug=False)
