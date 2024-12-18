@@ -1,5 +1,3 @@
-Here’s a copy-paste-friendly README.md:
-
 # Smart Blinds Controller
 
 A Flask-based web application to control and monitor SOMA smart blinds via the SOMA Connect HTTP API. This application provides a dashboard to view the current state of blinds, battery levels, and allows users to open, close, stop, or set specific positions for the blinds.
